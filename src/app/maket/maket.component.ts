@@ -1,6 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
-import { DragulaService } from 'ng2-dragula';
-import {Subscription} from "rxjs";
+import {DragulaService} from 'ng2-dragula';
+import {Subscription} from 'rxjs';
+
 @Component({
   selector: 'app-maket',
   templateUrl: './maket.component.html',
@@ -10,23 +11,26 @@ export class MaketComponent implements OnDestroy {
 
 
   MANY_ITEMS = 'MANY_ITEMS';
-  public components = ['box-icon', 'box-text', '1', '2'];
+  public components = ['icon', 'text', 'title'];
   public phone = [];
 
   subs = new Subscription();
 
-  public constructor(private dragulaService:DragulaService) {
+  public constructor(private dragulaService: DragulaService) {
 
     dragulaService.createGroup('MANY_ITEMS', {
       copy: (el, source) => {
         return source.id === 'left';
       },
       copyItem: (item) => {
-        if(item === 'box-icon'){
-          return String('box-icon')
+        if (item === 'icon') {
+          return String('icon');
         }
-        if(item === 'box-text'){
-          return String('box-text')
+        if (item === 'text') {
+          return String('text');
+        }
+        if (item === 'title') {
+          return String('title');
         }
 
       },
@@ -37,9 +41,8 @@ export class MaketComponent implements OnDestroy {
     });
 
 
-
     this.subs.add(dragulaService.dropModel(this.MANY_ITEMS)
-      .subscribe(({ el, target, source, sourceModel, targetModel, item }) => {
+      .subscribe(({el, target, source, sourceModel, targetModel, item}) => {
         console.log('dropModel:');
         console.log(el);
         console.log(source);
@@ -50,7 +53,7 @@ export class MaketComponent implements OnDestroy {
       })
     );
     this.subs.add(dragulaService.removeModel(this.MANY_ITEMS)
-      .subscribe(({ el, source, item, sourceModel }) => {
+      .subscribe(({el, source, item, sourceModel}) => {
         console.log('removeModel:');
         console.log(el);
         console.log(source);

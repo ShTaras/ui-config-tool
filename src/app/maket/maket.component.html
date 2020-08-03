@@ -30,11 +30,14 @@
         </div>
         <div class="components__container" dragula="MANY_ITEMS" [(dragulaModel)]="components" id="left">
           <div *ngFor="let item of components" class="item">
-            <ng-template [ngIf]="item === 'box-icon'">
+            <ng-template [ngIf]="item === 'icon'">
               <app-box-icon></app-box-icon>
             </ng-template>
-            <ng-template [ngIf]="item === 'box-text'">
+            <ng-template [ngIf]="item === 'text'">
               <app-box-text></app-box-text>
+            </ng-template>
+            <ng-template [ngIf]="item === 'title'">
+              <app-box-title></app-box-title>
             </ng-template>
           </div>
         </div>
@@ -44,14 +47,16 @@
     <div class="workArea">
       <div class="phone" dragula="MANY_ITEMS" [(dragulaModel)]="phone" id="right">
         <div *ngFor="let item of phone" class="item">
-          <ng-template [ngIf]="item === 'box-icon'">
-            <app-box-icon></app-box-icon>
+          <ng-template [ngIf]="item === 'icon'">
+            <app-phone-icon></app-phone-icon>
           </ng-template>
 
-          <ng-template [ngIf]="item === 'box-text'">
-            <app-box-text></app-box-text>
+          <ng-template [ngIf]="item === 'text'">
+            <app-phone-text></app-phone-text>
           </ng-template>
-
+          <ng-template [ngIf]="item === 'title'">
+            <app-phone-title></app-phone-title>
+          </ng-template>
         </div>
       </div>
 

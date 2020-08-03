@@ -31,7 +31,8 @@
 }
 
 .phone {
-display: flex;
+  display: flex;
+  align-content: start;
   flex-flow: row wrap;
   border-radius: 15px;
   height: 620px;
@@ -40,12 +41,16 @@ display: flex;
 
 }
 
-.components {
-  height: 250px;
-  &__container{
-    height: 100% ;
+
+
+  .components {
+    height: 250px;
+
+    &__container {
+      height: 100%;
+    }
   }
-}
+
 
 .left-col {
   background: azure;
@@ -75,7 +80,12 @@ display: flex;
 }
 
 .item {
-
+  // width: 100%;
   margin: 10px;
 
+}
+.box-title-onPhone{
+  height: 50px;
+  border-radius: 5px;
+  background-color: #7499ff;
 }
